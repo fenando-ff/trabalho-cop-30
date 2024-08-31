@@ -275,6 +275,7 @@ nav {
 }
 
 .item img {
+  
     width: 100px;
     max-width: 100%;
     max-height: 100%;
@@ -329,4 +330,23 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     gap: 5px; 
+}
+
+
+/*Hover nas imagens*/
+.item img {
+  transition: transform 0.3s ease; /* Suaviza a animação */
+}
+
+.item img:hover {
+  transform: scale(1.1); /* Aumenta a imagem para 110% */
+}
+
+/* Para as imagens dentro da classe .lixo */
+.lixo img {
+  transition: transform 0.3s ease; /* Suaviza a animação */
+}
+
+.lixo img:hover {
+  transform: scale(1.8); /* Aumenta a imagem para 110% */
 }
