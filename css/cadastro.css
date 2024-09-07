@@ -88,7 +88,7 @@ body{
   }
 
   .sessao {
-    width: 100%;
+    width: 70%;
     margin-left: 0;
     margin-right: 3rem;
   }
@@ -98,6 +98,7 @@ body{
   }
 
   #cadastroForm {
-    width: 90%;
+    width: 100%;
+    margin: auto;
   }
 }
