@@ -92,4 +92,8 @@ body{
     margin-left: 0;
     margin-right: 3rem;
   }
+
+  .logo {
+    width: 100%;
+  }
 }
