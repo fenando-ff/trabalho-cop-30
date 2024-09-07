@@ -75,7 +75,7 @@ body{
   cursor: pointer;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 750px) {
   * {
     margin: 0;
     padding: 0;
@@ -88,7 +88,7 @@ body{
   }
 
   .sessao {
-    width: 70%;
+    width: 100%;
     margin-left: 0;
     margin-right: 3rem;
   }
