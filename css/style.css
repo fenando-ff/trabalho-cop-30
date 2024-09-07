@@ -169,8 +169,9 @@
     .container{
       display: flex;
     }
-  }
 
+    
+  }
 p {
     font-family: 'DM Sans', sans-serif;
 }

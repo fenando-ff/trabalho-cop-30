@@ -74,3 +74,22 @@ body{
   border: 1.8px solid #1b7340;
   cursor: pointer;
 }
+
+@media screen and (max-width: 750px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    width:100%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .sessao {
+    width: 70%;
+    margin-left: 0;
+    margin-right: 3rem;
+  }
+}
