@@ -6,8 +6,7 @@ import tensorflow as tf
 app = Flask(__name__)
 
 # Carregar o modelo previamente treinado
-model = tf.keras.models.load_model('/content/save_models/model_trained.keras')
-
+model = tf.keras.models.load_model('trabalho-cop-30\python\model_trained.keras')
 # Função para preparar a imagem
 def prepare_image(image, target_size):
     if image.mode != "RGB":
