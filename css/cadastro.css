@@ -53,9 +53,11 @@ body{
   border: 1.5px solid #1b7340;
   border-radius: 5px;
   font-size: 1rem;
+  padding: 3px;
 }
 
 .botao {
+  text-align: center;
   width: 10rem;
   background-color: #1b7340;
   color: #ffffff;
