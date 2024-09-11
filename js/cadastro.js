@@ -3,7 +3,6 @@ function confirmarSenha() {
     let conf = document.getElementById('conf').value.trim();
 
     if (conf === senha) {
-        let botao = document.getElementById('envio')/* selecion ao botão pelo id */
         botao.setAttribute('type', 'submit') /* adiciona a o atributo submit ao botão para enviar o formulário */
     } else if (conf === "" || senha === "")/* confere se as senhas estão vazias */ {
         alert('Preencha todos os campos')
