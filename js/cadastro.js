@@ -1,3 +1,4 @@
+// A função faz a comparação das senhas e envia para algum lugar
 function confirmarSenha() {
     let senha = document.getElementById('senha').value.trim();/* '.trim' tira os possíveis espaços que podem ter antes e depois da senha */
     let conf = document.getElementById('conf').value.trim();
