@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Cadastre-se</title>
+
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <section class="sessao">
+        <div class="logo d-flex justify-content-center" id="logo">
+            <div class="img">
+                <a href="index.html"><img class="img-logo" src="assets/img/logotipo.png" alt="logo" width="100"></a>
+            </div>
+            
+            <form class="cadastroForm" name="form-users" id="formUsers" method="post">
+                {% csrf_token %}
+                <h1>Cadastre-se</h1>
+
+                <div class="inputbox">
+                    <label class="campo" for="nome">Nome Completo:</label>
+                    <input class="dados" type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="inputbox">
+                    <label class="campo" for="telefone">Telefone:</label>
+                    <input class="dados" type="tel" id="telefone" name="telefone" min="0" required>
+                </div>
+
+                <div class="inputbox">
+                    <label class="campo" for="email">Email:</label>
+                    <input class="dados" type="text" id="email" name="email" required>
+                </div>
+
+                <div class="inputbox">
+                    <label class="campo" for="user">Usuário:</label>
+                    <input class="dados" type="text" id="user" name="user" required>
+                </div>
+
+                <div class="inputbox">
+                    <label class="campo" for="senha">Crie sua Senha:</label>
+                    <input class="dados" type="password" id="senha" name="senha" required>
+                </div>
+
+                <div class="inputbox">
+                    <label class="campo" for="conf">Confirme sua Senha:</label>
+                    <input class="dados" type="password" id="conf" name="conf" required>
+                </div>
+
+                <div class="inputbox botoes">
+                    <input class="botao" id="envio" onclick="confirmarSenha()" value="Enviar">
+                </div>
+            </form>
+        </div>
+    </section>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
