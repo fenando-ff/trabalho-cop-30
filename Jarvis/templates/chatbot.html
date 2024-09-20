@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ÁlvaroBot</title>
+    <link
+      rel="stylesheet"
+      href="/static/style.css"
+    />
+  </head>
+  <body>
+    <div class="chatbot-icon" id="chatbot-icon">
+      <img src="/static/icons8-mensagens-64.png" />
+    </div>
+
+    <div class="chat-container" id="chat-container">
+      <div class="chat-header">
+        <img src="/static/avatar.png" alt="ÁlvaroBot" class="chat-avatar" />
+        <span class="chat-title">ÁlvaroBot</span>
+        <button class="close-btn" id="close-btn">✖</button>
+      </div>
+      <div id="chat-box" class="chat-box">
+        <div class="chat-message bot">
+          <img
+            src="/static/avatar.png"
+            alt="ÁlvaroBot"
+            class="message-avatar"
+          />
+          <span
+            >Olá! Sou o ÁlvaroBot. Selecione uma das opções de ajuda abaixo:<br />
+            1- Localização de eco pontos🔎.<br />
+            2- Lixeira ideal para descarte🗑️.<br />
+            3- Dicas de Reciclagem♻️.<br />
+            4- Dicas de Redução de Resíduos.
+          </span>
+        </div>
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          id="mensagem-input"
+          placeholder="Digite sua mensagem aqui..."
+          autofocus
+        />
+        <button id="enviar-btn" title="Enviar mensagem">➤</button>
+      </div>
+    </div>
+    <div id="typing-indicator" class="typing-indicator" style="display: none">
+      <img src="/static/avatar.png" alt="ÁlvaroBot" class="message-avatar" />
+      <span>ÁlvaroBot está digitando...</span>
+    </div>
+
+    <script>
+      const chatContainer = document.getElementById("chat-container");
+      const chatbotIcon = document.getElementById("chatbot-icon");
+      const closeBtn = document.getElementById("close-btn");
+      const input = document.getElementById("mensagem-input");
+      const enviarBtn = document.getElementById("enviar-btn");
+
+      chatbotIcon.addEventListener("click", function () {
+        chatContainer.classList.toggle("active");
+      });
+
+      closeBtn.addEventListener("click", function () {
+        chatContainer.classList.remove("active");
+      });
+
+      input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+          enviarMensagem();
+        }
+      });
+
+      enviarBtn.addEventListener("click", function () {
+        enviarMensagem();
+      });
+
+      function enviarMensagem() {
+        const mensagem = input.value.trim();
+        if (mensagem) {
+          adicionarMensagemUsuario(mensagem);
+          processarMensagem(mensagem);
+          input.value = "";
+          input.focus();
+        }
+      }
+
+      function adicionarMensagemUsuario(mensagem) {
+        const chatBox = document.getElementById("chat-box");
+        const div = document.createElement("div");
+        div.className = "chat-message user";
+        div.textContent = mensagem;
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      function adicionarMensagemBot(resposta) {
+        const chatBox = document.getElementById("chat-box");
+        const div = document.createElement("div");
+        div.className = "chat-message bot";
+        div.innerHTML = `<img src="{{ url_for('static', filename='avatar.png') }}" alt="ÁlvaroBot" class="message-avatar"><span>${resposta}</span>`;
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      function processarMensagem(mensagem) {
+        const typingIndicator = document.getElementById("typing-indicator");
+        const chatBox = document.getElementById("chat-box");
+
+        // Mostrar a animação de digitação dentro da caixa de mensagens
+        typingIndicator.style.display = "flex";
+        chatBox.appendChild(typingIndicator); // Adicionar à caixa de mensagens
+
+        // Simular um atraso de 3 segundos antes de enviar a resposta
+        setTimeout(() => {
+          fetch("/chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ mensagem: mensagem }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Ocultar o indicador de digitação
+              typingIndicator.style.display = "none";
+
+              // Mostrar a resposta do bot
+              adicionarMensagemBot(data.resposta);
+            });
+        }, 3000); // 3000ms = 3 segundos
+      }
+    </script>
+  </body>
+</html>

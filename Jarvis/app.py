@@ -21,7 +21,7 @@ def responder(entrada):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("chatbot.html")
 
 @app.route("/chat", methods=["POST"])
 def chat():
