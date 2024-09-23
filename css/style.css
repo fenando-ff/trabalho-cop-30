@@ -351,3 +351,39 @@ nav {
 .lixo img:hover {
   transform: scale(1.3); /* Aumenta a imagem para 110% */
 }
+
+.hidden {
+  display: none;
+}
+
+#card-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+}
+
+#card-content h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+#card-content p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+#close-card {
+  background-color: #069E6E;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
