@@ -16,7 +16,7 @@
         img {
             display: block;
             margin: 0 auto;
-            width: 60%; /* Definir uma largura retangular */
+            width: 40%; /* Definir uma largura retangular */
             border-radius: 15px; /* Borda arredondada */
         }
         .content {
@@ -40,6 +40,52 @@
             text-decoration: none;
             color: green;
         }
+        .comment-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.comment-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-section label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.comment-section input[type="text"],
+.comment-section textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment-section button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-section button:hover {
+    background-color: darkgreen;
+}
     </style>
 </head>
 <body>
@@ -91,6 +137,18 @@
         <p>Transformar garrafas de vidro em vasos é uma prática sustentável e cheia de estilo. Da próxima vez que uma garrafa de vidro esvaziar, pense duas vezes antes de jogá-la fora. Em vez disso, transforme-a em uma peça decorativa que, além de embelezar sua casa, também colabora com o meio ambiente!</p>
 
     </div>
+    <div class="comment-section">
+            <h2>Deixe seu comentário</h2>
+            <form action="#" method="post">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="comment">Comentário:</label>
+                <textarea id="comment" name="comment" rows="5" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
 
 </body>
 </html>
