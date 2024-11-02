@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideias de Reciclagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin: 15px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card h2 {
+            font-size: 20px;
+            margin: 10px 0 10px;
+            color: #333;
+        }
+        .card p {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        .categoria {
+            font-size: 12px;
+            font-weight: bold;
+            color: #009688;
+            margin-bottom: 8px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        #addButton {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #009688;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ideias de Reciclagem</h1>
+
+    <!-- Container para os cards -->
+    <div id="cardContainer"></div>
+
+    <!-- Botão para adicionar um novo card -->
+    <button id="addButton">Adicionar Ideia de Reciclagem</button>
+
+    <script>
+        // Função para criar e adicionar um novo card
+        function criarCard(titulo, categoria, conteudo, imagemUrl) {
+            const cardContainer = document.getElementById('cardContainer');
+
+            // Cria o card
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            // Adiciona a imagem
+            const img = document.createElement('img');
+            img.src = imagemUrl;
+            img.alt = titulo;
+            card.appendChild(img);
+
+            // Adiciona o título
+            const h2 = document.createElement('h2');
+            h2.textContent = titulo;
+            card.appendChild(h2);
+
+            // Adiciona a categoria
+            const categoriaDiv = document.createElement('div');
+            categoriaDiv.className = 'categoria';
+            categoriaDiv.textContent = 'Categoria: ' + categoria;
+            card.appendChild(categoriaDiv);
+
+            // Adiciona o conteúdo
+            const p = document.createElement('p');
+            p.textContent = conteudo;
+            card.appendChild(p);
+
+            // Adiciona o card ao container
+            cardContainer.appendChild(card);
+        }
+
+        // Evento de clique para o botão
+        document.getElementById('addButton').addEventListener('click', () => {
+            criarCard(
+                'Ideia de Reciclagem Personalizada',
+                'Papelão',
+                'Crie organizadores com caixas de papelão. Personalize com pintura para dar um toque especial!',
+                'https://via.placeholder.com/300x200' // URL da imagem de exemplo
+            );
+        });
+    </script>
+
+</body>
+</html>
